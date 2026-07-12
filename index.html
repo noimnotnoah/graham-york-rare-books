@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graham York Rare Books — Antiquarian Booksellers, Honiton</title>
+<meta name="description" content="Graham York Rare Books, Honiton, Devon. Antiquarian and rare books since 1982 — over 20,000 volumes in stock, specialising in Spain, the Gypsies, travel and local history.">
+<style>
+  :root{
+    --ink:#221d17;
+    --ink-soft:#3a3227;
+    --parchment:#e7dfc9;
+    --parchment-light:#f2ecda;
+    --parchment-card:#ede4cc;
+    --green:#2e4a3b;
+    --green-dark:#1f332a;
+    --brass:#a67c3d;
+    --brass-light:#c9a35f;
+    --oxblood:#6b2a2e;
+    --oxblood-light:#8a3a3f;
+    --rule:rgba(34,29,23,0.18);
+    --shadow:0 18px 40px -22px rgba(34,29,23,0.45);
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"URW Palladio L","Book Antiqua",Georgia,"Times New Roman",serif;
+    --serif-display:"Big Caslon","Baskerville","Iowan Old Style",Palatino,Georgia,"Times New Roman",serif;
+    --mono:"Courier New",Courier,monospace;
+  }
+
+  :root[data-theme="dark"]{
+    --ink:#e9e1cb;
+    --ink-soft:#c9bfa4;
+    --parchment:#1b1712;
+    --parchment-light:#211c15;
+    --parchment-card:#25201a;
+    --green:#6fa38a;
+    --green-dark:#4d7a65;
+    --brass:#c9a35f;
+    --brass-light:#e0bd7f;
+    --oxblood:#c4666b;
+    --oxblood-light:#d68488;
+    --rule:rgba(233,225,203,0.16);
+    --shadow:0 18px 44px -20px rgba(0,0,0,0.65);
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#e9e1cb;
+      --ink-soft:#c9bfa4;
+      --parchment:#1b1712;
+      --parchment-light:#211c15;
+      --parchment-card:#25201a;
+      --green:#6fa38a;
+      --green-dark:#4d7a65;
+      --brass:#c9a35f;
+      --brass-light:#e0bd7f;
+      --oxblood:#c4666b;
+      --oxblood-light:#d68488;
+      --rule:rgba(233,225,203,0.16);
+      --shadow:0 18px 44px -20px rgba(0,0,0,0.65);
+    }
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- Texture ---------- */
+  .grain{
+    position:fixed; inset:0; pointer-events:none; z-index:1; opacity:0.5; mix-blend-mode:multiply;
+    background-image:
+      radial-gradient(circle at 15% 25%, rgba(34,29,23,0.05) 0, transparent 45%),
+      radial-gradient(circle at 85% 70%, rgba(34,29,23,0.04) 0, transparent 50%);
+  }
+  :root[data-theme="dark"] .grain, @media (prefers-color-scheme: dark){ .grain{ mix-blend-mode:screen; } }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:40;
+    background:var(--parchment);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 32px;
+    max-width:1120px; margin:0 auto;
+  }
+  .brand{
+    display:flex; flex-direction:column; gap:2px;
+    text-decoration:none;
+  }
+  .brand-name{
+    font-family:var(--serif-display);
+    font-size:22px;
+    letter-spacing:0.03em;
+    color:var(--ink);
+  }
+  .brand-tag{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--brass);
+  }
+  nav.links{
+    display:flex; gap:34px;
+    font-size:13px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    font-family:var(--serif);
+  }
+  nav.links a{
+    text-decoration:none;
+    color:var(--ink-soft);
+    position:relative;
+    padding-bottom:4px;
+  }
+  nav.links a::after{
+    content:"";
+    position:absolute; left:0; right:100%; bottom:0; height:1px;
+    background:var(--oxblood);
+    transition:right 0.35s cubic-bezier(.4,0,.2,1);
+  }
+  nav.links a:hover{ color:var(--ink); }
+  nav.links a:hover::after{ right:0; }
+  .menu-btn{ display:none; background:none; border:1px solid var(--rule); color:var(--ink); font-family:var(--mono); font-size:12px; padding:8px 12px; letter-spacing:0.08em; cursor:pointer; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    background:
+      linear-gradient(180deg, var(--green-dark), var(--green) 60%, var(--green-dark));
+    color:var(--parchment-light);
+    padding:96px 32px 88px;
+    overflow:hidden;
+  }
+  :root[data-theme="dark"] .hero{ background:linear-gradient(180deg,#12201a,#16281f 55%,#0f1a15); }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .hero{ background:linear-gradient(180deg,#12201a,#16281f 55%,#0f1a15);} }
+
+  .hero::before, .hero::after{
+    content:"";
+    position:absolute; left:0; right:0; height:1px;
+    background:linear-gradient(90deg, transparent, var(--brass-light) 20%, var(--brass-light) 80%, transparent);
+    opacity:0.55;
+  }
+  .hero::before{ top:28px; }
+  .hero::after{ bottom:28px; }
+
+  .hero-inner{
+    max-width:760px; margin:0 auto; text-align:center; position:relative; z-index:2;
+  }
+  .hero-eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    margin-bottom:22px;
+  }
+  .hero h1{
+    font-family:var(--serif-display);
+    font-weight:400;
+    font-size:clamp(38px, 5.6vw, 62px);
+    line-height:1.08;
+    margin:0 0 22px;
+    text-wrap:balance;
+    letter-spacing:0.005em;
+  }
+  .hero h1 em{ font-style:italic; color:var(--brass-light); }
+  .hero p.lede{
+    font-size:18px;
+    color:#d9d1b8;
+    max-width:560px;
+    margin:0 auto 38px;
+    line-height:1.7;
+  }
+  .hero-actions{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:44px; }
+
+  .btn{
+    display:inline-block;
+    font-family:var(--serif);
+    font-size:14.5px;
+    letter-spacing:0.05em;
+    text-decoration:none;
+    padding:13px 28px;
+    border:1px solid var(--brass-light);
+    transition:all 0.25s ease;
+  }
+  .btn-solid{
+    background:var(--brass-light);
+    color:var(--green-dark);
+  }
+  .btn-solid:hover{ background:transparent; color:var(--brass-light); }
+  .btn-ghost{
+    color:var(--parchment-light);
+    border-color:rgba(242,236,218,0.4);
+  }
+  .btn-ghost:hover{ border-color:var(--brass-light); color:var(--brass-light); }
+
+  .hero-stats{
+    display:flex; justify-content:center; gap:0; flex-wrap:wrap;
+    border-top:1px solid rgba(242,236,218,0.18);
+    padding-top:32px;
+  }
+  .stat{
+    padding:0 30px;
+    text-align:center;
+    border-right:1px solid rgba(242,236,218,0.18);
+  }
+  .stat:last-child{ border-right:none; }
+  .stat .n{
+    font-family:var(--serif-display);
+    font-size:28px;
+    color:var(--brass-light);
+    display:block;
+  }
+  .stat .l{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:#c8bfa4;
+  }
+
+  /* ---------- Section scaffolding ---------- */
+  section{ padding:88px 0; position:relative; }
+  .section-alt{ background:var(--parchment-light); }
+  .rule-top{ border-top:1px solid var(--rule); }
+
+  .kicker{
+    display:flex; align-items:baseline; gap:16px; margin-bottom:14px;
+  }
+  .kicker .num{
+    font-family:var(--serif-display);
+    font-style:italic;
+    font-size:20px;
+    color:var(--oxblood);
+  }
+  .kicker .label{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--brass);
+  }
+  h2.title{
+    font-family:var(--serif-display);
+    font-weight:400;
+    font-size:clamp(28px,3.4vw,40px);
+    margin:0 0 20px;
+    text-wrap:balance;
+  }
+  .lead-text{
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:640px;
+    line-height:1.75;
+  }
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:64px; align-items:start;
+  }
+  .about-copy p{ margin:0 0 18px; color:var(--ink-soft); }
+  .about-copy p:first-of-type::first-letter{
+    font-family:var(--serif-display);
+    font-size:56px;
+    float:left;
+    line-height:0.8;
+    padding:6px 10px 0 0;
+    color:var(--oxblood);
+  }
+  .badge-row{ display:flex; gap:12px; margin-top:28px; flex-wrap:wrap; }
+  .badge{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    border:1px solid var(--brass);
+    color:var(--brass);
+    padding:8px 14px;
+  }
+  .aside-card{
+    background:var(--parchment-card);
+    border:1px solid var(--rule);
+    padding:32px;
+    box-shadow:var(--shadow);
+  }
+  .aside-card h3{
+    font-family:var(--serif-display);
+    font-weight:400;
+    font-size:20px;
+    margin:0 0 14px;
+    color:var(--oxblood);
+  }
+  .aside-card p{ color:var(--ink-soft); font-size:15.5px; margin:0; }
+  .aside-card .lottie-line{
+    margin-top:18px; padding-top:18px; border-top:1px dashed var(--rule);
+    font-style:italic; font-size:15px; color:var(--ink-soft);
+  }
+
+  /* ---------- Collections ---------- */
+  .cat-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+    margin-top:44px;
+  }
+  .cat-card{
+    background:var(--parchment-light);
+    padding:30px 26px;
+    min-height:180px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    transition:background 0.3s ease;
+  }
+  .cat-card:hover{ background:var(--parchment-card); }
+  .cat-card .cn{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--brass);
+    letter-spacing:0.1em;
+  }
+  .cat-card h4{
+    font-family:var(--serif-display);
+    font-weight:400;
+    font-size:20px;
+    margin:14px 0 8px;
+  }
+  .cat-card p{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin:0;
+    line-height:1.55;
+  }
+  @media (max-width:900px){ .cat-grid{ grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .cat-grid{ grid-template-columns:1fr;} }
+
+  /* ---------- Beyond books ---------- */
+  .beyond-wrap{
+    display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:center;
+  }
+  .instrument-list{ list-style:none; margin:26px 0 0; padding:0; }
+  .instrument-list li{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:14px 0;
+    border-bottom:1px solid var(--rule);
+    font-size:16px;
+  }
+  .instrument-list li span.term{ font-family:var(--serif-display); }
+  .instrument-list li span.desc{ font-family:var(--mono); font-size:12px; color:var(--ink-soft); letter-spacing:0.02em; }
+
+  .curio-frame{
+    border:1px solid var(--brass);
+    padding:38px;
+    position:relative;
+    background:var(--parchment-card);
+  }
+  .curio-frame::before{
+    content:"";
+    position:absolute; inset:8px;
+    border:1px solid var(--rule);
+    pointer-events:none;
+  }
+  .curio-frame blockquote{
+    margin:0; font-family:var(--serif-display); font-style:italic; font-size:22px; line-height:1.5; color:var(--ink);
+  }
+  .curio-frame cite{ display:block; margin-top:18px; font-style:normal; font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--brass); }
+
+  /* ---------- Catalogues ---------- */
+  .drawer{
+    margin-top:44px; border-top:1px solid var(--rule);
+  }
+  .drawer-row{
+    display:grid; grid-template-columns:60px 1fr auto; gap:20px; align-items:center;
+    padding:22px 0; border-bottom:1px solid var(--rule);
+  }
+  .drawer-row .rn{ font-family:var(--serif-display); font-style:italic; font-size:20px; color:var(--oxblood); }
+  .drawer-row h4{ font-family:var(--serif); font-weight:600; font-size:17px; margin:0 0 4px; }
+  .drawer-row p{ margin:0; font-size:14px; color:var(--ink-soft); }
+  .drawer-row a.req{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--green); text-decoration:none; border-bottom:1px solid var(--green); padding-bottom:3px; white-space:nowrap;
+  }
+  .drawer-row a.req:hover{ color:var(--oxblood); border-color:var(--oxblood); }
+  @media (max-width:640px){
+    .drawer-row{ grid-template-columns:40px 1fr; }
+    .drawer-row a.req{ grid-column:1/-1; }
+  }
+
+  /* ---------- Visit ---------- */
+  .visit-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:44px;
+  }
+  .visit-panel{ background:var(--parchment-light); padding:44px; }
+  .visit-panel h3{ font-family:var(--serif-display); font-weight:400; font-size:22px; margin:0 0 20px; }
+  .info-line{ display:flex; gap:14px; margin-bottom:16px; font-size:15.5px; }
+  .info-line .k{ font-family:var(--mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--brass); min-width:88px; padding-top:2px; }
+  .info-line .v a{ text-decoration:none; border-bottom:1px solid var(--rule); }
+  .info-line .v a:hover{ border-color:var(--oxblood); color:var(--oxblood); }
+
+  .map-panel{
+    background:var(--green-dark);
+    color:var(--parchment-light);
+    padding:44px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    position:relative;
+    min-height:280px;
+  }
+  .compass{
+    width:64px; height:64px; border:1px solid var(--brass-light); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--serif-display); font-style:italic; color:var(--brass-light); font-size:13px;
+    margin-bottom:24px;
+  }
+  .map-panel .addr{ font-family:var(--serif-display); font-size:22px; line-height:1.4; }
+  .map-panel .sub{ font-family:var(--mono); font-size:11px; letter-spacing:0.1em; color:#c8bfa4; margin-top:10px; }
+  .map-panel a.map-link{
+    margin-top:28px; align-self:flex-start;
+    font-family:var(--mono); font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--brass-light); text-decoration:none; border-bottom:1px solid var(--brass-light); padding-bottom:3px;
+  }
+
+  /* ---------- Contact / CTA ---------- */
+  .contact-band{
+    background:var(--ink); color:var(--parchment-light); text-align:center; padding:96px 32px;
+  }
+  :root[data-theme="dark"] .contact-band{ background:#0f0d0a; }
+  .contact-band h2{
+    font-family:var(--serif-display); font-weight:400; font-size:clamp(30px,4vw,44px); margin:0 0 18px; text-wrap:balance;
+  }
+  .contact-band p{ color:#c8bfa4; max-width:520px; margin:0 auto 36px; font-size:17px; }
+  .contact-methods{ display:flex; gap:28px; justify-content:center; flex-wrap:wrap; margin-top:40px; }
+  .contact-methods a{
+    text-decoration:none; color:var(--parchment-light); font-family:var(--mono); font-size:13px; letter-spacing:0.05em;
+    border-bottom:1px solid var(--brass); padding-bottom:4px;
+  }
+  .contact-methods a:hover{ color:var(--brass-light); border-color:var(--brass-light); }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:40px 32px; text-align:center; font-family:var(--mono); font-size:11.5px; letter-spacing:0.06em; color:var(--ink-soft);
+    background:var(--parchment);
+  }
+  footer .flinks{ margin-top:10px; }
+  footer .flinks a{ color:var(--ink-soft); text-decoration:none; margin:0 8px; }
+  footer .flinks a:hover{ color:var(--oxblood); }
+
+  /* ---------- Reveal ---------- */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (max-width:860px){
+    .about-grid, .beyond-wrap, .visit-grid{ grid-template-columns:1fr; }
+    nav.links{ display:none; }
+    .menu-btn{ display:inline-block; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header>
+  <div class="nav-row">
+    <a href="#top" class="brand">
+      <span class="brand-name">Graham York Rare Books</span>
+      <span class="brand-tag">Antiquarian Booksellers · Est. 1982</span>
+    </a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#collections">Collections</a>
+      <a href="#beyond">Curiosities</a>
+      <a href="#catalogues">Catalogues</a>
+      <a href="#visit">Visit</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu-btn" aria-label="Toggle navigation">Menu</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">225 High Street · Honiton · Devon</div>
+      <h1>Fine and Rare Books,<br><em>Kept Since 1982</em></h1>
+      <p class="lede">Over twenty thousand volumes in stock at our Honiton shop — Spain, the Gypsies, travel, local history and much beyond. A particular leaning, if we're honest, for the works of George Borrow.</p>
+      <div class="hero-actions">
+        <a href="#catalogues" class="btn btn-solid">Browse the Catalogues</a>
+        <a href="#visit" class="btn btn-ghost">Visit the Shop</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="n">20,000+</span><span class="l">Books in Stock</span></div>
+        <div class="stat"><span class="n">1982</span><span class="l">Trading Since</span></div>
+        <div class="stat"><span class="n">ABA · ILAB</span><span class="l">Member Dealer</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="reveal">
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <div class="kicker"><span class="num">I.</span><span class="label">About the Shop</span></div>
+        <h2 class="title">A Devon bookshop trading since 1982</h2>
+        <p>Graham York Rare Books has traded from 225 High Street, Honiton, since 1982. The shop deals generally in fine and rare books, with a stock of over twenty thousand volumes and particular collections in Spain, the Gypsies, travel, local history, literature, theatre and music, art and architecture, and cookery — along with a particular leaning for the works of George Borrow.</p>
+        <p>Alongside the books, the shop stocks microscopes, stereoscopes, zograscopes, old maps, prints and ephemera, as well as bookcases. Graham York Rare Books is a member of the ABA (Antiquarian Booksellers' Association) and ILAB (International League of Antiquarian Booksellers), and issues mail-order catalogues alongside its shop stock.</p>
+        <div class="badge-row">
+          <span class="badge">ABA Member</span>
+          <span class="badge">ILAB Member</span>
+          <span class="badge">Trading Since 1982</span>
+        </div>
+      </div>
+      <div class="aside-card">
+        <h3>In the Shop Today</h3>
+        <p>Open Monday to Saturday for browsing, with earlier or later visits welcome by appointment. We do close from time to time for book fairs and buying trips further afield — do ring ahead if you're travelling any distance.</p>
+        <div class="lottie-line">The shop's mascot is Lottie.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="collections" class="section-alt rule-top reveal">
+    <div class="wrap">
+      <div class="kicker"><span class="num">II.</span><span class="label">Collections</span></div>
+      <h2 class="title">What you'll find on the shelves</h2>
+      <p class="lead-text">Our stock ranges widely, but returns again and again to a handful of subjects we've come to know deeply.</p>
+      <div class="cat-grid">
+        <div class="cat-card"><div><span class="cn">No. 01</span><h4>Spain</h4><p>Travel, literature and history — one of our oldest and deepest specialisms.</p></div></div>
+        <div class="cat-card"><div><span class="cn">No. 02</span><h4>The Gypsies</h4><p>Romani history and studies, close in spirit to our Borrow holdings.</p></div></div>
+        <div class="cat-card"><div><span class="cn">No. 03</span><h4>Travel</h4><p>Accounts and narratives from further afield and closer to home.</p></div></div>
+        <div class="cat-card"><div><span class="cn">No. 04</span><h4>Local History</h4><p>Devon and the wider West Country, well represented on our shelves.</p></div></div>
+        <div class="cat-card"><div><span class="cn">No. 05</span><h4>Literature</h4><p>Fiction, poetry and criticism, old and occasionally overlooked.</p></div></div>
+        <div class="cat-card"><div><span class="cn">No. 06</span><h4>Theatre &amp; Music</h4><p>Playbills, scores and the printed record of performance.</p></div></div>
+        <div class="cat-card"><div><span class="cn">No. 07</span><h4>Art &amp; Architecture</h4><p>Illustrated works and studies across both disciplines.</p></div></div>
+        <div class="cat-card"><div><span class="cn">No. 08</span><h4>Cookery</h4><p>Historic and collectable volumes for the kitchen shelf.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="beyond" class="reveal">
+    <div class="wrap beyond-wrap">
+      <div>
+        <div class="kicker"><span class="num">III.</span><span class="label">Beyond the Books</span></div>
+        <h2 class="title">Instruments, maps &amp; ephemera</h2>
+        <p class="lead-text">Not everything in the shop has a spine. Alongside the books, the shop stocks scientific instruments and paper curiosities.</p>
+        <ul class="instrument-list">
+          <li><span class="term">Microscopes</span><span class="desc">Optical Instruments</span></li>
+          <li><span class="term">Stereoscopes</span><span class="desc">Viewing Devices</span></li>
+          <li><span class="term">Zograscopes</span><span class="desc">Print Viewers</span></li>
+          <li><span class="term">Old Maps &amp; Prints</span><span class="desc">Paper &amp; Ephemera</span></li>
+          <li><span class="term">Bookcases</span><span class="desc">To House It All</span></li>
+        </ul>
+      </div>
+      <div class="curio-frame">
+        <blockquote>"A particular leaning for the works of George Borrow."</blockquote>
+        <cite>From gyork.co.uk</cite>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalogues" class="section-alt rule-top reveal">
+    <div class="wrap">
+      <div class="kicker"><span class="num">IV.</span><span class="label">Catalogues</span></div>
+      <h2 class="title">Current mail-order catalogues</h2>
+      <p class="lead-text">Five catalogues are currently in circulation. Write in and we'll gladly send the ones that suit your shelves.</p>
+      <div class="drawer">
+        <div class="drawer-row">
+          <span class="rn">i.</span>
+          <div><h4>Typography &amp; Printing</h4><p>The history and craft of the printed page.</p></div>
+          <a class="req" href="mailto:books@gyork.co.uk?subject=Catalogue%20Request%3A%20Typography%20%26%20Printing">Request Copy →</a>
+        </div>
+        <div class="drawer-row">
+          <span class="rn">ii.</span>
+          <div><h4>Spain: Travel</h4><p>Journeys through Spain, historic and modern.</p></div>
+          <a class="req" href="mailto:books@gyork.co.uk?subject=Catalogue%20Request%3A%20Spain%20Travel">Request Copy →</a>
+        </div>
+        <div class="drawer-row">
+          <span class="rn">iii.</span>
+          <div><h4>Spain: Literature &amp; History</h4><p>Letters, history and literature of the Iberian peninsula.</p></div>
+          <a class="req" href="mailto:books@gyork.co.uk?subject=Catalogue%20Request%3A%20Spain%20Literature%20%26%20History">Request Copy →</a>
+        </div>
+        <div class="drawer-row">
+          <span class="rn">iv.</span>
+          <div><h4>Bookbinding</h4><p>The craft and history of binding, boards to spine.</p></div>
+          <a class="req" href="mailto:books@gyork.co.uk?subject=Catalogue%20Request%3A%20Bookbinding">Request Copy →</a>
+        </div>
+        <div class="drawer-row">
+          <span class="rn">v.</span>
+          <div><h4>The Gypsies</h4><p>Romani history, close to the heart of the shop.</p></div>
+          <a class="req" href="mailto:books@gyork.co.uk?subject=Catalogue%20Request%3A%20The%20Gypsies">Request Copy →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit" class="reveal">
+    <div class="wrap">
+      <div class="kicker"><span class="num">V.</span><span class="label">Visit</span></div>
+      <h2 class="title">Find us on the High Street</h2>
+      <div class="visit-grid">
+        <div class="visit-panel">
+          <h3>Shop Details</h3>
+          <div class="info-line"><span class="k">Address</span><span class="v">225 High Street, Honiton, Devon, EX14 1LB</span></div>
+          <div class="info-line"><span class="k">Hours</span><span class="v">Monday–Saturday, 10.30am–4pm. Earlier or later by appointment.</span></div>
+          <div class="info-line"><span class="k">Note</span><span class="v">Closed periodically for book fairs and buying trips — do call ahead if travelling far.</span></div>
+          <div class="info-line"><span class="k">Phone</span><span class="v"><a href="tel:+441404441727">01404 41727</a> · <a href="tel:+447831138011">07831 138 011</a></span></div>
+        </div>
+        <div class="map-panel">
+          <div>
+            <div class="compass">N&nbsp;S<br></div>
+            <div class="addr">225 High Street<br>Honiton, Devon<br>EX14 1LB</div>
+            <div class="sub">50.7981° N, 3.1948° W</div>
+          </div>
+          <a class="map-link" href="https://maps.app.goo.gl/oC4cJ9tHTjSmpZcY8" target="_blank" rel="noopener">Open in Google Maps →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-band reveal">
+    <div class="wrap" style="padding:0;">
+      <h2>Write in, ring up, or come by</h2>
+      <p>Whether you're after a particular title, a catalogue, or simply want to talk books — we'd like to hear from you.</p>
+      <div class="contact-methods">
+        <a href="mailto:books@gyork.co.uk">books@gyork.co.uk</a>
+        <a href="tel:+441404441727">01404 41727</a>
+        <a href="tel:+447831138011">07831 138 011</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>Graham York Rare Books · 225 High Street, Honiton, Devon EX14 1LB · Est. 1982</div>
+  <div class="flinks">
+    <a href="mailto:books@gyork.co.uk">Email</a>·
+    <a href="https://maps.app.goo.gl/oC4cJ9tHTjSmpZcY8" target="_blank" rel="noopener">Map</a>·
+    <a href="#top">Back to Top</a>
+  </div>
+</footer>
+
+<script>
+  var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if(!mq.matches && 'IntersectionObserver' in window){
+    var els = document.querySelectorAll('.reveal');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+
+  var menuBtn = document.querySelector('.menu-btn');
+  var links = document.querySelector('nav.links');
+  if(menuBtn){
+    menuBtn.addEventListener('click', function(){
+      var open = links.style.display === 'flex';
+      links.style.display = open ? 'none' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.position = 'absolute';
+      links.style.top = '64px';
+      links.style.left = '0';
+      links.style.right = '0';
+      links.style.background = 'var(--parchment)';
+      links.style.padding = '20px 32px';
+      links.style.borderBottom = '1px solid var(--rule)';
+      links.style.gap = '18px';
+    });
+  }
+</script>
+
+</body>
+</html>
