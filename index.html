@@ -502,14 +502,14 @@
 
   /* ---------- Cookie notice ---------- */
   .cookie-note{
-    position:fixed; left:20px; right:20px; bottom:20px; z-index:60;
+    position:fixed; left:20px; right:20px; bottom:20px; z-index:9999;
     max-width:460px; margin:0 auto;
     background:var(--ink); color:var(--parchment-light);
-    border:1px solid var(--brass); box-shadow:var(--shadow);
-    padding:18px 20px; display:none; align-items:center; gap:16px; justify-content:space-between;
+    border:1px solid var(--brass-light); box-shadow:var(--shadow);
+    padding:18px 20px; display:flex; flex-wrap:wrap; align-items:center; gap:16px; justify-content:space-between;
     font-size:14px;
   }
-  .cookie-note.show{ display:flex; flex-wrap:wrap; }
+  .cookie-note.hide{ display:none; }
   .cookie-note p{ margin:0; color:#d9d1b8; }
   .cookie-note a{ color:var(--brass-light); }
   .cookie-note button{
@@ -832,12 +832,14 @@
   var cookieNote = document.getElementById('cookieNote');
   var cookieDismiss = document.getElementById('cookieDismiss');
   if(cookieNote && cookieDismiss){
-    if(!localStorage.getItem('gyork-cookie-note-dismissed')){
-      cookieNote.classList.add('show');
-    }
+    try{
+      if(localStorage.getItem('gyork-cookie-note-dismissed')){
+        cookieNote.classList.add('hide');
+      }
+    }catch(e){}
     cookieDismiss.addEventListener('click', function(){
-      cookieNote.classList.remove('show');
-      localStorage.setItem('gyork-cookie-note-dismissed', '1');
+      cookieNote.classList.add('hide');
+      try{ localStorage.setItem('gyork-cookie-note-dismissed', '1'); }catch(e){}
     });
   }
 </script>
