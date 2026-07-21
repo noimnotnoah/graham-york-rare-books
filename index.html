@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Graham York Rare Books, Antiquarian Booksellers, Honiton</title>
-<meta name="description" content="Graham York Rare Books, Honiton, Devon. Antiquarian and rare books since 1982, with over 20,000 volumes in stock, specialising in Spain, the Gypsies, travel and local history.">
+<meta name="description" content="Graham York Rare Books, Honiton, Devon. Antiquarian and rare books since 1982, with over 20,000 volumes in stock, specialising in Spain, Gypsies, travel and local history.">
 <style>
   :root{
     --ink:#221d17;
@@ -300,8 +300,18 @@
     color:var(--brass);
     padding:8px 14px;
   }
-  .seal-row{ display:flex; align-items:center; gap:22px; margin-top:26px; flex-wrap:wrap; }
-  .seal{ width:56px; height:56px; object-fit:contain; background:#f2ecda; border-radius:50%; padding:6px; }
+  /* ---------- Association band ---------- */
+  .assoc-band{ background:var(--parchment-card); padding:56px 0; }
+  .assoc-inner{ text-align:center; }
+  .assoc-label{
+    display:block; font-family:var(--mono); font-size:12px; letter-spacing:0.24em; text-transform:uppercase;
+    color:var(--brass); margin-bottom:30px;
+  }
+  .assoc-row{ display:flex; align-items:center; justify-content:center; gap:56px; flex-wrap:wrap; }
+  .assoc-item{ display:flex; flex-direction:column; align-items:center; gap:14px; }
+  .assoc-item img{ width:120px; height:120px; object-fit:contain; background:#f2ecda; border-radius:50%; padding:12px; box-shadow:var(--shadow); }
+  .assoc-item span{ font-family:var(--serif-display); font-size:16px; letter-spacing:0.04em; color:var(--ink); }
+  @media (max-width:640px){ .assoc-row{ gap:34px; } .assoc-item img{ width:92px; height:92px; } }
   .aside-card{
     background:var(--parchment-card);
     border:1px solid var(--rule);
@@ -512,8 +522,8 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-eyebrow">225 High Street · Honiton · Devon</div>
-      <h1>Fine and Rare Books,<br><em>Kept Since 1982</em></h1>
-      <p class="lede">Over twenty thousand volumes in stock at our Honiton shop, spanning Spain, the Gypsies, travel, local history and much beyond. A particular leaning, if we're honest, for the works of George Borrow.</p>
+      <h1>Fine and Rare Books,<br><em>Since 1982</em></h1>
+      <p class="lede">Over twenty thousand volumes in stock at our Honiton shop, covering Spain, Gypsies, travel, local history and much beyond. A particular leaning, if we're honest, for the works of George Borrow.</p>
       <div class="hero-actions">
         <a href="#catalogues" class="btn btn-solid">Browse the Catalogues</a>
         <a href="#visit" class="btn btn-ghost">Visit the Shop</a>
@@ -526,23 +536,38 @@
     </div>
   </section>
 
+  <section class="assoc-band reveal">
+    <div class="wrap assoc-inner">
+      <span class="assoc-label">Proud members of</span>
+      <div class="assoc-row">
+        <div class="assoc-item">
+          <img src="images/aba-seal.jpg" alt="Antiquarian Booksellers' Association member seal">
+          <span>ABA</span>
+        </div>
+        <div class="assoc-item">
+          <img src="images/ilab-seal.jpg" alt="ILAB, Amor Librorum Nos Unit, member seal">
+          <span>ILAB</span>
+        </div>
+        <div class="assoc-item">
+          <img src="images/pbfa-seal.gif" alt="PBFA, the sign of a good book fair, member seal">
+          <span>PBFA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="about" class="reveal">
     <div class="wrap about-grid">
       <div class="about-copy">
         <div class="kicker"><span class="num">I.</span><span class="label">About the Shop</span></div>
         <h2 class="title">A Devon bookshop trading since 1982</h2>
-        <p>Graham York Rare Books has traded from 225 High Street, Honiton, since 1982. The shop deals generally in fine and rare books, with a stock of over twenty thousand volumes and particular collections in Spain, the Gypsies, travel, local history, literature, theatre and music, art and architecture, and cookery, along with a particular leaning for the works of George Borrow.</p>
+        <p>Graham York Rare Books has traded from 225 High Street, Honiton, since 1982. The shop deals generally in fine and rare books, with a stock of over twenty thousand volumes and particular collections in Spain, Gypsies, travel, local history, literature, theatre and music, art and architecture, and cookery, along with a particular leaning for the works of George Borrow.</p>
         <p>Alongside the books, the shop stocks microscopes, stereoscopes, zograscopes, old maps, prints and ephemera, as well as bookcases. Graham York Rare Books is a member of the ABA (Antiquarian Booksellers' Association) and ILAB (International League of Antiquarian Booksellers), and issues mail-order catalogues alongside its shop stock.</p>
         <div class="badge-row">
           <span class="badge">ABA Member</span>
           <span class="badge">ILAB Member</span>
           <span class="badge">PBFA Member</span>
           <span class="badge">Trading Since 1982</span>
-        </div>
-        <div class="seal-row">
-          <img src="images/aba-seal.jpg" alt="Antiquarian Booksellers' Association member seal" class="seal">
-          <img src="images/ilab-seal.jpg" alt="ILAB, Amor Librorum Nos Unit, member seal" class="seal">
-          <img src="images/pbfa-seal.gif" alt="PBFA, the sign of a good book fair, member seal" class="seal">
         </div>
       </div>
       <div class="aside-card">
@@ -596,7 +621,8 @@
     <div class="wrap">
       <div class="kicker"><span class="num">IV.</span><span class="label">Catalogues</span></div>
       <h2 class="title">Current mail-order catalogues</h2>
-      <p class="lead-text">Five catalogues are currently in circulation. Write in and we'll gladly send the ones that suit your shelves.</p>
+      <p class="lead-text">Five catalogues are currently in circulation. Write in and we'll gladly send the ones that suit your shelves. A large part of our stock is also listed for browsing online.</p>
+      <a class="btn btn-solid" style="margin-top:8px; display:inline-block;" href="http://www.abebooks.com/servlet/SearchResults?sortby=0&amp;vci=136737" target="_blank" rel="noopener">Browse Our Stock on AbeBooks →</a>
       <div class="drawer">
         <div class="drawer-row">
           <span class="rn">i.</span>
