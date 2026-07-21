@@ -150,7 +150,7 @@
     position:relative;
     background:
       linear-gradient(180deg, var(--green-dark), var(--green) 60%, var(--green-dark));
-    color:var(--parchment-light);
+    color:#f2ecda;
     padding:96px 32px 88px;
     overflow:hidden;
   }
@@ -212,7 +212,7 @@
   }
   .btn-solid:hover{ background:transparent; color:var(--brass-light); }
   .btn-ghost{
-    color:var(--parchment-light);
+    color:#f2ecda;
     border-color:rgba(242,236,218,0.4);
   }
   .btn-ghost:hover{ border-color:var(--brass-light); color:var(--brass-light); }
@@ -414,13 +414,6 @@
     color:var(--green); text-decoration:none; border-bottom:1px solid var(--green); padding-bottom:3px; white-space:nowrap;
   }
   .drawer-row a.req:hover{ color:var(--oxblood); border-color:var(--oxblood); }
-  .req-group{ display:flex; flex-direction:column; gap:8px; align-items:flex-end; }
-  .req-group a.dl{
-    font-family:var(--mono); font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--oxblood); text-decoration:none; border-bottom:1px solid var(--oxblood); padding-bottom:3px; white-space:nowrap;
-  }
-  .req-group a.dl:hover{ color:var(--green); border-color:var(--green); }
-  @media (max-width:640px){ .req-group{ align-items:flex-start; } }
   @media (max-width:640px){
     .drawer-row{ grid-template-columns:40px 1fr; }
     .drawer-row a.req{ grid-column:1/-1; }
@@ -439,7 +432,7 @@
 
   .map-panel{
     background:var(--green-dark);
-    color:var(--parchment-light);
+    color:#f2ecda;
     padding:44px;
     display:flex; flex-direction:column; justify-content:space-between;
     position:relative;
@@ -461,16 +454,17 @@
 
   /* ---------- Contact / CTA ---------- */
   .contact-band{
-    background:var(--ink); color:var(--parchment-light); text-align:center; padding:96px 32px;
+    background:var(--ink); color:#f2ecda; text-align:center; padding:96px 32px;
   }
   :root[data-theme="dark"] .contact-band{ background:#0f0d0a; }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .contact-band{ background:#0f0d0a; } }
   .contact-band h2{
     font-family:var(--serif-display); font-weight:400; font-size:clamp(30px,4vw,44px); margin:0 0 18px; text-wrap:balance;
   }
   .contact-band p{ color:#c8bfa4; max-width:520px; margin:0 auto 36px; font-size:17px; }
   .contact-methods{ display:flex; gap:28px; justify-content:center; flex-wrap:wrap; margin-top:40px; }
   .contact-methods a{
-    text-decoration:none; color:var(--parchment-light); font-family:var(--mono); font-size:13px; letter-spacing:0.05em;
+    text-decoration:none; color:#f2ecda; font-family:var(--mono); font-size:13px; letter-spacing:0.05em;
     border-bottom:1px solid var(--brass); padding-bottom:4px;
   }
   .contact-methods a:hover{ color:var(--brass-light); border-color:var(--brass-light); }
@@ -627,26 +621,17 @@
         <div class="drawer-row">
           <span class="rn">i.</span>
           <div><h4>Typography &amp; Printing</h4><p>The history and craft of the printed page.</p></div>
-          <div class="req-group">
-            <a class="req" href="mailto:books@gyork.co.uk?subject=Catalogue%20Request%3A%20Typography%20%26%20Printing">Request Copy →</a>
-            <a class="dl" href="catalogues/cat-136-typography-printing.pdf" target="_blank" rel="noopener">Download PDF ↓</a>
-          </div>
+          <a class="req" href="catalogues/cat-136-typography-printing.pdf" target="_blank" rel="noopener">Download PDF ↓</a>
         </div>
         <div class="drawer-row">
           <span class="rn">ii.</span>
           <div><h4>Spain: Travel</h4><p>Journeys through Spain, historic and modern.</p></div>
-          <div class="req-group">
-            <a class="req" href="mailto:books@gyork.co.uk?subject=Catalogue%20Request%3A%20Spain%20Travel">Request Copy →</a>
-            <a class="dl" href="catalogues/cat-135-spain-travel.pdf" target="_blank" rel="noopener">Download PDF ↓</a>
-          </div>
+          <a class="req" href="catalogues/cat-135-spain-travel.pdf" target="_blank" rel="noopener">Download PDF ↓</a>
         </div>
         <div class="drawer-row">
           <span class="rn">iii.</span>
           <div><h4>Spain: Literature &amp; History</h4><p>Letters, history and literature of the Iberian peninsula.</p></div>
-          <div class="req-group">
-            <a class="req" href="mailto:books@gyork.co.uk?subject=Catalogue%20Request%3A%20Spain%20Literature%20%26%20History">Request Copy →</a>
-            <a class="dl" href="catalogues/cat-134-spain-literature-history.pdf" target="_blank" rel="noopener">Download PDF ↓</a>
-          </div>
+          <a class="req" href="catalogues/cat-134-spain-literature-history.pdf" target="_blank" rel="noopener">Download PDF ↓</a>
         </div>
         <div class="drawer-row">
           <span class="rn">iv.</span>
