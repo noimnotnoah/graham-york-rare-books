@@ -344,6 +344,7 @@
     min-height:180px;
     display:flex; flex-direction:column; justify-content:space-between;
     transition:background 0.3s ease;
+    text-decoration:none;
   }
   .cat-card:hover{ background:var(--parchment-card); }
   .cat-card .cn{
@@ -428,6 +429,13 @@
     .drawer-row{ grid-template-columns:40px 1fr; }
     .drawer-row a.req{ grid-column:1/-1; }
   }
+
+  /* ---------- Elsewhere ---------- */
+  .elsewhere-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px 40px; margin-top:36px; }
+  .elsewhere-grid a{ display:flex; justify-content:space-between; gap:14px; padding:12px 0; border-bottom:1px solid var(--rule); text-decoration:none; font-size:15px; }
+  .elsewhere-grid a:hover{ color:var(--oxblood); }
+  .elsewhere-grid a span.arrow{ font-family:var(--mono); color:var(--brass); }
+  @media (max-width:640px){ .elsewhere-grid{ grid-template-columns:1fr; } }
 
   /* ---------- Diary ---------- */
   .diary-banner{ display:block; max-width:640px; margin-top:32px; border:1px solid var(--rule); box-shadow:var(--shadow); }
@@ -601,6 +609,9 @@
         <div class="cat-card"><div><span class="cn">No. 06</span><h4>Theatre &amp; Music</h4><p>Playbills, scores and the printed record of performance.</p></div></div>
         <div class="cat-card"><div><span class="cn">No. 07</span><h4>Art &amp; Architecture</h4><p>Illustrated works and studies across both disciplines.</p></div></div>
         <div class="cat-card"><div><span class="cn">No. 08</span><h4>Cookery</h4><p>Historic and collectable volumes for the kitchen shelf.</p></div></div>
+        <a class="cat-card" href="https://gyork.co.uk/posters.htm" target="_blank" rel="noopener"><div><span class="cn">No. 09</span><h4>Vintage Posters</h4><p>Decorative and advertising posters, on our previous site.</p></div></a>
+        <a class="cat-card" href="https://gyork.co.uk/maps.htm" target="_blank" rel="noopener"><div><span class="cn">No. 10</span><h4>Antique Maps</h4><p>Antique maps, on our previous site.</p></div></a>
+        <a class="cat-card" href="https://gyork.co.uk/miniatures.htm" target="_blank" rel="noopener"><div><span class="cn">No. 11</span><h4>Miniature Books</h4><p>Miniature books, on our previous site.</p></div></a>
       </div>
     </div>
   </section>
@@ -653,7 +664,7 @@
     <div class="wrap">
       <div class="kicker"><span class="num">V.</span><span class="label">Catalogues</span></div>
       <h2 class="title">Current mail-order catalogues</h2>
-      <p class="lead-text">Five catalogues are currently in circulation. Write in and we'll gladly send the ones that suit your shelves. A large part of our stock is also listed for browsing online.</p>
+      <p class="lead-text">Five catalogues are currently in circulation, all available to download below. A large part of our stock is also listed for browsing online.</p>
       <a class="btn btn-solid" style="margin-top:8px; display:inline-block;" href="http://www.abebooks.com/servlet/SearchResults?sortby=0&amp;vci=136737" target="_blank" rel="noopener">Browse Our Stock on AbeBooks →</a>
       <div class="drawer">
         <div class="drawer-row">
@@ -674,12 +685,12 @@
         <div class="drawer-row">
           <span class="rn">iv.</span>
           <div><h4>Bookbinding</h4><p>The craft and history of binding, boards to spine.</p></div>
-          <a class="req" href="mailto:books@gyork.co.uk?subject=Catalogue%20Request%3A%20Bookbinding">Request Copy →</a>
+          <a class="req" href="catalogues/cat-133-bookbinding.pdf" target="_blank" rel="noopener">Download PDF ↓</a>
         </div>
         <div class="drawer-row">
           <span class="rn">v.</span>
           <div><h4>Gypsies</h4><p>Romani history, close to the heart of the shop.</p></div>
-          <a class="req" href="mailto:books@gyork.co.uk?subject=Catalogue%20Request%3A%20Gypsies">Request Copy →</a>
+          <a class="req" href="catalogues/cat-132-gypsies.pdf" target="_blank" rel="noopener">Download PDF ↓</a>
         </div>
       </div>
     </div>
@@ -696,9 +707,27 @@
     </div>
   </section>
 
+  <section class="section-alt rule-top reveal">
+    <div class="wrap">
+      <div class="kicker"><span class="num">VII.</span><span class="label">Elsewhere</span></div>
+      <h2 class="title">More from the shop</h2>
+      <p class="lead-text">A few more pages carried over from our previous site, plus a recommendation of our own.</p>
+      <div class="elsewhere-grid">
+        <a href="https://gyork.co.uk/news.htm" target="_blank" rel="noopener">News<span class="arrow">→</span></a>
+        <a href="https://gyork.co.uk/fairs.htm" target="_blank" rel="noopener">Book Fairs<span class="arrow">→</span></a>
+        <a href="https://gyork.co.uk/links.htm" target="_blank" rel="noopener">Links<span class="arrow">→</span></a>
+        <a href="https://gyork.co.uk/Brausgang 2016.pdf" target="_blank" rel="noopener">Budapest Blog<span class="arrow">→</span></a>
+        <a href="https://gyork.co.uk/On the Road.pdf" target="_blank" rel="noopener">Maastricht Blog<span class="arrow">→</span></a>
+        <a href="https://gyork.co.uk/Mechelen 2022.pdf" target="_blank" rel="noopener">Mechelen Blog<span class="arrow">→</span></a>
+        <a href="https://gyork.co.uk/Bonjour to Brexit.pdf" target="_blank" rel="noopener">Bonjour to Brexit<span class="arrow">→</span></a>
+        <a href="http://www.bluevanguard.co.uk" target="_blank" rel="noopener">The Blue Vanguard Jazz Club<span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
   <section id="visit" class="reveal">
     <div class="wrap">
-      <div class="kicker"><span class="num">VII.</span><span class="label">Visit</span></div>
+      <div class="kicker"><span class="num">VIII.</span><span class="label">Visit</span></div>
       <h2 class="title">Find us on the High Street</h2>
       <div class="visit-grid">
         <div class="visit-panel">
