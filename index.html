@@ -398,6 +398,16 @@
   }
   .curio-frame cite{ display:block; margin-top:18px; font-style:normal; font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--brass); }
 
+  /* ---------- Gallery ---------- */
+  .gallery-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:44px; }
+  .gallery-item{ background:var(--parchment-card); border:1px solid var(--rule); box-shadow:var(--shadow); overflow:hidden; }
+  .gallery-item img{ width:100%; aspect-ratio:3/2; object-fit:cover; display:block; }
+  .gallery-item .cap{ padding:14px 16px; font-family:var(--mono); font-size:12px; letter-spacing:.02em; color:var(--ink-soft); }
+  .gallery-item.wide{ grid-column:1/-1; }
+  .gallery-item.wide img{ aspect-ratio:16/3; object-fit:contain; background:var(--parchment-card); }
+  @media (max-width:900px){ .gallery-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .gallery-grid{ grid-template-columns:1fr; } .gallery-item.wide img{ aspect-ratio:3/2; object-fit:cover; } }
+
   /* ---------- Catalogues ---------- */
   .drawer{
     margin-top:44px; border-top:1px solid var(--rule);
@@ -503,6 +513,7 @@
       <a href="#about">About</a>
       <a href="#collections">Collections</a>
       <a href="#beyond">Curiosities</a>
+      <a href="#gallery">Gallery</a>
       <a href="#catalogues">Catalogues</a>
       <a href="#visit">Visit</a>
       <a href="#contact">Contact</a>
@@ -611,9 +622,32 @@
     </div>
   </section>
 
+  <section id="gallery" class="section-alt rule-top reveal">
+    <div class="wrap">
+      <div class="kicker"><span class="num">IV.</span><span class="label">Inside the Shop</span></div>
+      <h2 class="title">A look around the shelves</h2>
+      <p class="lead-text">Some glimpses of the shop itself, its cabinets and its corners.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="images/shop/shop-overview.jpg" alt="Bookshelves and glass cabinets inside the shop" loading="lazy"><div class="cap">Bookshelves and cabinets in the shop</div></div>
+        <div class="gallery-item"><img src="images/shop/curio-cabinet.jpg" alt="A glass cabinet of small instruments and curiosities" loading="lazy"><div class="cap">A cabinet of instruments and curiosities</div></div>
+        <div class="gallery-item"><img src="images/shop/gypsies-shelf.jpg" alt="A bookshelf labelled Gypsies" loading="lazy"><div class="cap">Shelving for the Gypsies collection</div></div>
+        <div class="gallery-item"><img src="images/shop/framed-maps.jpg" alt="Framed antique maps and prints on display" loading="lazy"><div class="cap">Framed maps and prints on display</div></div>
+        <div class="gallery-item"><img src="images/shop/room-doorways.jpg" alt="Doorways between the shop's book rooms" loading="lazy"><div class="cap">Between Room 1 and Room 3</div></div>
+        <div class="gallery-item"><img src="images/shop/shelves-prints.jpg" alt="Bookshelves near a garden door, with framed prints on the wall" loading="lazy"><div class="cap">Shelves by the garden door</div></div>
+        <div class="gallery-item"><img src="images/shop/chandelier-window.jpg" alt="Bookshelves of science and astronomy titles beneath a chandelier" loading="lazy"><div class="cap">Science and astronomy shelves</div></div>
+        <div class="gallery-item"><img src="images/shop/reading-corner.jpg" alt="A quiet corner of bookshelves with a chair" loading="lazy"><div class="cap">A quiet corner among the shelves</div></div>
+        <div class="gallery-item"><img src="images/shop/garden-bust.jpg" alt="A weathered stone bust in the shop's garden" loading="lazy"><div class="cap">A stone bust in the garden</div></div>
+        <div class="gallery-item"><img src="images/shop/at-the-desk.jpg" alt="The bookseller at the desk, surrounded by shelves" loading="lazy"><div class="cap">At the desk</div></div>
+        <div class="gallery-item"><img src="images/shop/amsterdam-print.jpg" alt="A framed antique engraving of Amsterdam's Stadt House" loading="lazy"><div class="cap">Part of the print stock: an antique view of Amsterdam</div></div>
+        <div class="gallery-item wide"><img src="images/shop/hot-pennies-mural.jpg" alt="A painted mural of Honiton's Hot Pennies fair" loading="lazy"><div class="cap">A mural of Honiton's Hot Pennies fair, painted by Andrew Stacey and David Johnson, 1981</div></div>
+        <div class="gallery-item"><img src="images/shop/shopfront.jpg" alt="The shopfront on Honiton High Street" loading="lazy"><div class="cap">The shopfront on the High Street</div></div>
+      </div>
+    </div>
+  </section>
+
   <section id="catalogues" class="section-alt rule-top reveal">
     <div class="wrap">
-      <div class="kicker"><span class="num">IV.</span><span class="label">Catalogues</span></div>
+      <div class="kicker"><span class="num">V.</span><span class="label">Catalogues</span></div>
       <h2 class="title">Current mail-order catalogues</h2>
       <p class="lead-text">Five catalogues are currently in circulation. Write in and we'll gladly send the ones that suit your shelves. A large part of our stock is also listed for browsing online.</p>
       <a class="btn btn-solid" style="margin-top:8px; display:inline-block;" href="http://www.abebooks.com/servlet/SearchResults?sortby=0&amp;vci=136737" target="_blank" rel="noopener">Browse Our Stock on AbeBooks →</a>
@@ -649,7 +683,7 @@
 
   <section id="visit" class="reveal">
     <div class="wrap">
-      <div class="kicker"><span class="num">V.</span><span class="label">Visit</span></div>
+      <div class="kicker"><span class="num">VI.</span><span class="label">Visit</span></div>
       <h2 class="title">Find us on the High Street</h2>
       <div class="visit-grid">
         <div class="visit-panel">
